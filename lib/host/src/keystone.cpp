@@ -298,6 +298,7 @@ bool Keystone::prepareEnclave(struct keystone_ioctl_create_enclave* enclp,
   enclp->min_pages = ROUND_UP(params.getFreeMemSize(), PAGE_BITS)/PAGE_SIZE;
   enclp->min_pages += calculate_required_pages(enclaveFile->getTotalMemorySize(),
       runtimeFile->getTotalMemorySize());
+  printf("enclp->min_pages: %llu", enclp->min_pages);
   enclp->runtime_vaddr = (unsigned long) runtimeFile->getMinVaddr();
   enclp->user_vaddr = (unsigned long) enclaveFile->getMinVaddr();
 
