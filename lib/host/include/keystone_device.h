@@ -14,10 +14,26 @@
 
 
 
-class KeystoneDevice
+class KeystoneDeviceInterface
 {
 private:
     int fd;
+public:
+    KeystoneDeviceInterface() {};
+    ~KeystoneDeviceInterface() {};
+    virtual bool initDevice(Params params);
+    virtual int ioctl_ioc_create_enclave(struct keystone_ioctl_create_enclave *enclp);
+    virtual int ioctl_ioc_utm_init(struct keystone_ioctl_create_enclave *enclp);
+    virtual int ioctl_ioc_finalize_enclave(struct keystone_ioctl_create_enclave *enclp);
+    virtual int ioctl_destroy_enclave(struct keystone_ioctl_create_enclave *enclp);
+    virtual int ioctl_run_enclave(struct keystone_ioctl_run_enclave *enclp);
+    virtual int ioctl_resume_enclave(struct keystone_ioctl_run_enclave *enclp);
+    virtual int getFD();
+};
+
+class KeystoneDevice: public KeystoneDeviceInterface{
+private:
+    int fd
 public:
     KeystoneDevice() {};
     ~KeystoneDevice() {};
@@ -29,4 +45,22 @@ public:
     int ioctl_run_enclave(struct keystone_ioctl_run_enclave *enclp);
     int ioctl_resume_enclave(struct keystone_ioctl_run_enclave *enclp);
     int getFD();
+
 };
+
+class MockKeystoneDevice: public KeystoneDeviceInterface{
+private:
+    int fd
+public:
+    MockKeystoneDevice() {};
+    ~MockKeystoneDevice() {};
+    bool initDevice(Params params);
+    int ioctl_ioc_create_enclave(struct keystone_ioctl_create_enclave *enclp);
+    int ioctl_ioc_utm_init(struct keystone_ioctl_create_enclave *enclp);
+    int ioctl_ioc_finalize_enclave(struct keystone_ioctl_create_enclave *enclp);
+    int ioctl_destroy_enclave(struct keystone_ioctl_create_enclave *enclp);
+    int ioctl_run_enclave(struct keystone_ioctl_run_enclave *enclp);
+    int ioctl_resume_enclave(struct keystone_ioctl_run_enclave *enclp);
+    int getFD();
+};
+
