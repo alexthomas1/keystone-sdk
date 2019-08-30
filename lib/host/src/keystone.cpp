@@ -419,7 +419,7 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   } else {
     int ret;
 //    ret = ioctl(fd, KEYSTONE_IOC_UTM_INIT, &enclp);
-    ret = kDevice ->ioctl_ioc_utm_init(&enclp);
+    ret = kDevice->ioctl_ioc_utm_init(&enclp);
     if (ret) {
       ERROR("failed to init untrusted memory - ioctl() failed: %d", ret);
       destroy();

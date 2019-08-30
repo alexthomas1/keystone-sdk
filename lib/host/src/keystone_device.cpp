@@ -11,13 +11,13 @@ int KeystoneDevice::ioctl_ioc_create_enclave(struct keystone_ioctl_create_enclav
 
 int KeystoneDevice::ioctl_ioc_utm_init(struct keystone_ioctl_create_enclave *enclp)
 {
-  return ioctl(fd, KEYSTONE_IOC_UTM_INIT, &enclp);
+  return ioctl(fd, KEYSTONE_IOC_UTM_INIT, enclp);
 
 }
 
 int KeystoneDevice::ioctl_ioc_finalize_enclave(struct keystone_ioctl_create_enclave *enclp)
 {
-  return ioctl(fd, KEYSTONE_IOC_FINALIZE_ENCLAVE, &enclp);
+  return ioctl(fd, KEYSTONE_IOC_FINALIZE_ENCLAVE, enclp);
 }
 
 int KeystoneDevice::ioctl_destroy_enclave(struct keystone_ioctl_create_enclave *enclp)
