@@ -4,6 +4,7 @@
 
 #include "keystone_device.h"
 #include <keystone_user.h>
+#include "params.h"
 
 
 int KeystoneDevice::ioctl_ioc_create_enclave(int fd, struct keystone_ioctl_create_enclave *enclp)
