@@ -9,6 +9,7 @@
 #include <stdarg.h>
 #include <assert.h>
 #include "common.h"
+#include "keystone_user.h"
 
 
 
