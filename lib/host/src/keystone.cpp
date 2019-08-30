@@ -316,7 +316,8 @@ bool Keystone::prepareEnclave(struct keystone_ioctl_create_enclave* enclp,
   /* Pass in pages to map to enclave here. */
 
   /* Call Keystone Driver */
-  int ret = ioctl(fd, KEYSTONE_IOC_CREATE_ENCLAVE, enclp);
+//  int ret = ioctl(fd, KEYSTONE_IOC_CREATE_ENCLAVE, enclp);
+  int ret = kDevice->ioctl_ioc_create_enclave(fd, enclp);
 
   if (ret) {
     ERROR("failed to create enclave - ioctl() failed: %d", ret);
@@ -367,10 +368,10 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     return KEYSTONE_ERROR;
   }
 
-  if(!initDevice()) {
-    destroy();
-    return KEYSTONE_ERROR;
-  }
+//  if(!initDevice()) {
+//    destroy();
+//    return KEYSTONE_ERROR;
+//  }
 
   struct keystone_ioctl_create_enclave enclp;
   if(!prepareEnclave(&enclp, alternate_phys_addr)) {
