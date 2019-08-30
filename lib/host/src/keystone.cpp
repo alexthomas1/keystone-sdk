@@ -309,9 +309,7 @@ bool Keystone::prepareEnclave(struct keystone_ioctl_create_enclave* enclp,
     ERROR("failed to create enclave - ioctl() failed: %d", ret);
     return false;
   }
-
-  printf("created successfully\n");
-
+  
   /* We switch out the phys addr as needed */
 
   uintptr_t starting_phys_range;
