@@ -34,7 +34,7 @@ private:
   ELFFile* runtimeFile;
   ELFFile* enclaveFile;
   Memory* pMemory;
-  KeystoneDevice* kDevice;
+  KeystoneDeviceInterface* kDevice;
   char hash[MDSIZE];
   hash_ctx_t hash_ctx;
   vaddr_t enclave_stk_start;
