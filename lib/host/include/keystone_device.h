@@ -1,4 +1,6 @@
 #include <sys/ioctl.h>
+#include "params.h"
+
 
 
 class KeystoneDevice
