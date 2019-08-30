@@ -272,19 +272,6 @@ bool Keystone::initFiles(const char* eapppath, const char* runtimepath)
   return true;
 }
 
-//bool Keystone::initDevice()
-//{
-//  if (!params.isSimulated()) {
-//    /* open device driver */
-//    fd = open(KEYSTONE_DEV_PATH, O_RDWR);
-//    if (fd < 0) {
-//      PERROR("cannot open device file");
-//      return false;
-//    }
-//  }
-//  return true;
-//}
-
 bool Keystone::prepareEnclave(struct keystone_ioctl_create_enclave* enclp,
                               uintptr_t alternate_phys_addr)
 {
@@ -316,7 +303,6 @@ bool Keystone::prepareEnclave(struct keystone_ioctl_create_enclave* enclp,
   /* Pass in pages to map to enclave here. */
 
   /* Call Keystone Driver */
-//  int ret = ioctl(fd, KEYSTONE_IOC_CREATE_ENCLAVE, enclp);
   int ret = kDevice->ioctl_ioc_create_enclave(enclp);
 
   if (ret) {
@@ -372,11 +358,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 
   fd = kDevice->getFD();
 
-//  if(!initDevice()) {
-//    destroy();
-//    return KEYSTONE_ERROR;
-//  }
-
   struct keystone_ioctl_create_enclave enclp;
   if(!prepareEnclave(&enclp, alternate_phys_addr)) {
     destroy();
@@ -418,7 +399,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     hash_enclave.utm_paddr = utm_free_list;
   } else {
     int ret;
-//    ret = ioctl(fd, KEYSTONE_IOC_UTM_INIT, &enclp);
     ret = kDevice->ioctl_ioc_utm_init(&enclp);
     if (ret) {
       ERROR("failed to init untrusted memory - ioctl() failed: %d", ret);
@@ -441,7 +421,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     printHash(hash);
   } else {
     int ret;
-//    ret = ioctl(fd, KEYSTONE_IOC_FINALIZE_ENCLAVE, &enclp);
     ret = kDevice->ioctl_ioc_finalize_enclave(&enclp);
 
     if (ret) {
@@ -489,7 +468,6 @@ keystone_status_t Keystone::destroy()
   {
     struct keystone_ioctl_create_enclave enclp;
     enclp.eid = eid;
-//    int ret = ioctl(fd, KEYSTONE_IOC_DESTROY_ENCLAVE, &enclp);
     int ret = kDevice->ioctl_destroy_enclave(&enclp);
 
     if (ret) {
@@ -521,14 +499,12 @@ keystone_status_t Keystone::run()
   struct keystone_ioctl_run_enclave run;
   run.eid = eid;
 
-//  ret = ioctl(fd, KEYSTONE_IOC_RUN_ENCLAVE, &run);
   ret = kDevice->ioctl_run_enclave(&run);
   while (ret == KEYSTONE_ENCLAVE_EDGE_CALL_HOST) {
     /* enclave is stopped in the middle. */
     if (oFuncDispatch != NULL) {
       oFuncDispatch(getSharedBuffer());
     }
-//    ret = ioctl(fd, KEYSTONE_IOC_RESUME_ENCLAVE, &run);
     ret = kDevice->ioctl_resume_enclave(&run);
   }
 
