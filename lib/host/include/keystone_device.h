@@ -1,4 +1,13 @@
+#include <stddef.h>
+#include <cerrno>
 #include <sys/ioctl.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <iostream>
+#include <cstring>
+#include <stdarg.h>
+#include <assert.h>
 #include "common.h"
 
 
