@@ -417,7 +417,7 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   } else {
     int ret;
 //    ret = ioctl(fd, KEYSTONE_IOC_UTM_INIT, &enclp);
-    ret = kDevice ->ioctl_ioc_utm_init(fd, &enclp);
+    ret = kDevice ->ioctl_ioc_utm_init(&enclp);
     if (ret) {
       ERROR("failed to init untrusted memory - ioctl() failed: %d", ret);
       destroy();
@@ -440,7 +440,7 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   } else {
     int ret;
 //    ret = ioctl(fd, KEYSTONE_IOC_FINALIZE_ENCLAVE, &enclp);
-    ret = kDevice->ioctl_ioc_finalize_enclave(fd, &enclp);
+    ret = kDevice->ioctl_ioc_finalize_enclave(&enclp);
 
     if (ret) {
       ERROR("failed to finalize enclave - ioctl() failed: %d", ret);
@@ -488,7 +488,7 @@ keystone_status_t Keystone::destroy()
     struct keystone_ioctl_create_enclave enclp;
     enclp.eid = eid;
 //    int ret = ioctl(fd, KEYSTONE_IOC_DESTROY_ENCLAVE, &enclp);
-    int ret = kDevice->ioctl_destroy_enclave(fd, &enclp);
+    int ret = kDevice->ioctl_destroy_enclave(&enclp);
 
     if (ret) {
       ERROR("failed to destroy enclave - ioctl() failed: %d", ret);
@@ -520,14 +520,14 @@ keystone_status_t Keystone::run()
   run.eid = eid;
 
 //  ret = ioctl(fd, KEYSTONE_IOC_RUN_ENCLAVE, &run);
-  ret = kDevice->ioctl_run_enclave(fd, &run);
+  ret = kDevice->ioctl_run_enclave(&run);
   while (ret == KEYSTONE_ENCLAVE_EDGE_CALL_HOST) {
     /* enclave is stopped in the middle. */
     if (oFuncDispatch != NULL) {
       oFuncDispatch(getSharedBuffer());
     }
 //    ret = ioctl(fd, KEYSTONE_IOC_RESUME_ENCLAVE, &run);
-    ret = kDevice->ioctl_resume_enclave(fd, &run);
+    ret = kDevice->ioctl_resume_enclave(&run);
   }
 
   if (ret) {
