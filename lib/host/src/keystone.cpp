@@ -11,6 +11,7 @@
 #include "page.h"
 #include "hash_util.h"
 #include <math.h>
+#include "keystone_device.cpp
 
 Keystone::Keystone() {
   runtimeFile = NULL;
