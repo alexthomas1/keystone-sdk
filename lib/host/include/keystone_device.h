@@ -33,7 +33,7 @@ public:
 
 class KeystoneDevice: public KeystoneDeviceInterface{
 private:
-    int fd
+    int fd;
 public:
     KeystoneDevice() {};
     ~KeystoneDevice() {};
@@ -50,7 +50,7 @@ public:
 
 class MockKeystoneDevice: public KeystoneDeviceInterface{
 private:
-    int fd
+    int fd;
 public:
     MockKeystoneDevice() {};
     ~MockKeystoneDevice() {};
