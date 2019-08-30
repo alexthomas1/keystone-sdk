@@ -356,9 +356,14 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     pMemory = new PhysicalEnclaveMemory();
   }
 
-  kDevice = new KeystoneDevice();  
+  kDevice = new KeystoneDevice();
 
   if(!initFiles(eapppath, runtimepath)) {
+    return KEYSTONE_ERROR;
+  }
+
+  if(!kDevice->initDevice(params)) {
+    destroy();
     return KEYSTONE_ERROR;
   }
 
