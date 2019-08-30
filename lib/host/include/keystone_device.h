@@ -28,4 +28,5 @@ public:
     int ioctl_destroy_enclave(struct keystone_ioctl_create_enclave *enclp);
     int ioctl_run_enclave(struct keystone_ioctl_run_enclave *enclp);
     int ioctl_resume_enclave(struct keystone_ioctl_run_enclave *enclp);
+    int getFD();
 };

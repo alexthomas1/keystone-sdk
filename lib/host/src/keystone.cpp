@@ -272,18 +272,18 @@ bool Keystone::initFiles(const char* eapppath, const char* runtimepath)
   return true;
 }
 
-bool Keystone::initDevice()
-{
-  if (!params.isSimulated()) {
-    /* open device driver */
-    fd = open(KEYSTONE_DEV_PATH, O_RDWR);
-    if (fd < 0) {
-      PERROR("cannot open device file");
-      return false;
-    }
-  }
-  return true;
-}
+//bool Keystone::initDevice()
+//{
+//  if (!params.isSimulated()) {
+//    /* open device driver */
+//    fd = open(KEYSTONE_DEV_PATH, O_RDWR);
+//    if (fd < 0) {
+//      PERROR("cannot open device file");
+//      return false;
+//    }
+//  }
+//  return true;
+//}
 
 bool Keystone::prepareEnclave(struct keystone_ioctl_create_enclave* enclp,
                               uintptr_t alternate_phys_addr)
@@ -369,6 +369,8 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     destroy();
     return KEYSTONE_ERROR;
   }
+
+  fd = kDevice->getFD();
 
 //  if(!initDevice()) {
 //    destroy();

@@ -35,6 +35,10 @@ int KeystoneDevice::ioctl_resume_enclave(struct keystone_ioctl_run_enclave *encl
   return ioctl(fd, KEYSTONE_IOC_RESUME_ENCLAVE, enclp);
 }
 
+int KeystoneDevice::getFD(){
+  return fd;
+}
+
 bool KeystoneDevice::initDevice(Params params)
 {
   if (!params.isSimulated()) {
