@@ -1,6 +1,5 @@
 #include <sys/ioctl.h>
-#include "params.h"
-#include <iostream>
+
 
 
 
