@@ -37,3 +37,16 @@ int KeystoneDevice::ioctl_resume_enclave(int fd, struct keystone_ioctl_run_encla
   return ioctl(fd, KEYSTONE_IOC_RESUME_ENCLAVE, enclp);
 }
 
+bool KeystoneDevice::initDevice(Params params)
+{
+  if (!params.isSimulated()) {
+    /* open device driver */
+    fd = open(KEYSTONE_DEV_PATH, O_RDWR);
+    if (fd < 0) {
+      PERROR("cannot open device file");
+      return false;
+    }
+  }
+  return true;
+}
+
