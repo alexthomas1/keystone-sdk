@@ -317,7 +317,7 @@ bool Keystone::prepareEnclave(struct keystone_ioctl_create_enclave* enclp,
 
   /* Call Keystone Driver */
 //  int ret = ioctl(fd, KEYSTONE_IOC_CREATE_ENCLAVE, enclp);
-  int ret = kDevice->ioctl_ioc_create_enclave(fd, enclp);
+  int ret = kDevice->ioctl_ioc_create_enclave(enclp);
 
   if (ret) {
     ERROR("failed to create enclave - ioctl() failed: %d", ret);

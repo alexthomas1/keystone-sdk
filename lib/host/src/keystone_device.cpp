@@ -4,7 +4,7 @@
 
 #include "keystone_device.h"
 
-int KeystoneDevice::ioctl_ioc_create_enclave(int fd, struct keystone_ioctl_create_enclave *enclp)
+int KeystoneDevice::ioctl_ioc_create_enclave(struct keystone_ioctl_create_enclave *enclp)
 {
   return ioctl(fd, KEYSTONE_IOC_CREATE_ENCLAVE, enclp);
 }
