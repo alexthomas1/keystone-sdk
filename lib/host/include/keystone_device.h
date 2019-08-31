@@ -21,7 +21,7 @@ private:
 public:
     KeystoneDeviceInterface() {};
     ~KeystoneDeviceInterface() {};
-    virtual bool initDevice(Params params);
+    virtual bool initDevice(Params params) = 0;
     virtual int ioctl_ioc_create_enclave(struct keystone_ioctl_create_enclave *enclp) = 0;
     virtual int ioctl_ioc_utm_init(struct keystone_ioctl_create_enclave *enclp) = 0;
     virtual int ioctl_ioc_finalize_enclave(struct keystone_ioctl_create_enclave *enclp) = 0;
