@@ -28,7 +28,7 @@ public:
     virtual int ioctl_destroy_enclave(struct keystone_ioctl_create_enclave *enclp) = 0;
     virtual int ioctl_run_enclave(struct keystone_ioctl_run_enclave *enclp) = 0;
     virtual int ioctl_resume_enclave(struct keystone_ioctl_run_enclave *enclp) = 0;
-    virtual int getFD();
+    virtual int getFD() = 0;
 };
 
 class KeystoneDevice: public KeystoneDeviceInterface{
