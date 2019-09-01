@@ -12,14 +12,16 @@ SDK_INCLUDE_VERIFIER_DIR = $(SDK_LIB_DIR)/verifier
 
 
 SRC_DIR = $(SDK_LIB_DIR)/host/src
-SRC = $(SRC_DIR)/keystone.cpp $(SRC_DIR)/elffile.cpp $(SRC_DIR)/elf.cpp $(SRC_DIR)/elf32.cpp $(SRC_DIR)/elf64.cpp $(SRC_DIR)/sha3.cpp $(SRC_DIR)/memory.cpp
+SRC = keystone.cpp elffile.cpp elf.cpp elf32.cpp elf64.cpp sha3.cpp memory.cpp keystone_device.cpp
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
+
 CCFLAGS = -I$(SDK_INCLUDE_HOST_DIR) -I$(SDK_INCLUDE_EDGE_DIR) -I$(SDK_INCLUDE_VERIFIER_DIR) -std=c++11
 LDFLAGS = -L$(SDK_LIB_DIR)
 GFLAGS = -lgtest
 TARGET = test_runner
 
 all: $(SDK_HOST_LIB)
-	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp $(SRC) -o $(TARGET) $(GFLAGS)
+	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp $(SRCS) -o $(TARGET) $(GFLAGS)
 
 $(SDK_HOST_LIB):
 	$(MAKE) -C $(SDK_HOST_DIR)
