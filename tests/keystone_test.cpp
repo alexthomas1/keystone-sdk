@@ -20,7 +20,7 @@ TEST(Keystone_Init, ValidInit) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  EXPECT_EQ(enclave.init("test_runner", "test_runner", params), KEYSTONE_SUCCESS);
+  EXPECT_EQ(enclave.init("stack.eapp_riscv", "eyrie-rt", params), KEYSTONE_SUCCESS);
 }
 
 TEST(Keystone_Init, NullRT) {
@@ -31,7 +31,7 @@ TEST(Keystone_Init, NullRT) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  ASSERT_ANY_THROW(enclave.init("test_runner", 0, params));
+  ASSERT_ANY_THROW(enclave.init("stack.eapp_riscv", 0, params));
 }
 
 TEST(Keystone_Init, NullEAPP) {
