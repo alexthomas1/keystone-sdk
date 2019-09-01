@@ -19,8 +19,8 @@
 #include "elffile.h"
 #include "params.h"
 #include "sha3.h"
-//#include "memory.h"
-//#include "keystone_device.h"
+#include "memory.h"
+#include "keystone_device.h"
 
 
 class Keystone;
