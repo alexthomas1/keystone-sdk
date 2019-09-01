@@ -44,7 +44,7 @@ TEST(Keystone_Init, NullEAPP) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-//  ASSERT_ANY_THROW(enclave.init(0, "eyrie-rt", params));
+  ASSERT_ANY_THROW(enclave.init(0, "eyrie-rt", params));
 }
 
 TEST(Keystone_Run, RunTest) {
