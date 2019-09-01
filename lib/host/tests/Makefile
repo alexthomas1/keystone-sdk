@@ -1,4 +1,4 @@
-CC = riscv64-unknown-linux-gnu-g++
+CC = gcc
 OBJCOPY = riscv64-unknown-linux-gnu-objcopy
 
 SDK_LIB_DIR =$(KEYSTONE_SDK_DIR)/lib
