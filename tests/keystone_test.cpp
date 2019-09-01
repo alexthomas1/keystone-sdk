@@ -23,7 +23,8 @@ TEST(KeystoneSDK, InvalidELF) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  ASSERT_ANY_THROW(enclave.init("stack.eapp_riscv", 0, params));
+//  ASSERT_ANY_THROW(enclave.init("stack.eapp_riscv", 0, params));
+  ASSERT_NONE(enclave.init("stack.eapp_riscv", 0, params));
 }
 
 int main(int argc, char **argv)
