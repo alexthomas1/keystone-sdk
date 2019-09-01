@@ -15,5 +15,8 @@ LDFLAGS = -L$(SDK_LIB_DIR)
 GFLAGS = -lgtest
 TARGET = test_runner
 
-all:
+all: $(SDK_HOST_LIB)
 	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp -o $(TARGET) $(GFLAGS)
+
+$(SDK_HOST_LIB):
+	$(MAKE) -C $(SDK_HOST_DIR)
