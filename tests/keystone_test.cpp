@@ -33,7 +33,7 @@ TEST(Keystone_Init, NullRT) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-//  ASSERT_ANY_THROW(enclave.init("stack.eapp_riscv", 0, params));
+  ASSERT_ANY_THROW(enclave.init("stack.eapp_riscv", 0, params));
 }
 
 TEST(Keystone_Init, NullEAPP) {
