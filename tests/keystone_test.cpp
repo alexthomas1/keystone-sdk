@@ -21,6 +21,8 @@ TEST(Keystone_Init, ValidInit) {
   params.setSimulated(true);
 
   EXPECT_EQ(enclave.init("stack.eapp_riscv", "eyrie-rt", params), KEYSTONE_SUCCESS);
+
+  EXPECT_EQ(enclave.destroy(), KEYSTONE_SUCCESS);
 }
 
 TEST(Keystone_Init, NullRT) {
