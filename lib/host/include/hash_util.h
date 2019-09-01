@@ -157,7 +157,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
                                          user_max_seen,
                                          fd);
       if(contiguous == -1){
-        printf("BAD MAP: %p->%p epm %d %p uer %u %p\n",
+        printf("BAD MAP: %p->%p epm %u %p uer %u %p\n",
                (void *) va_start,
                (void *) phys_addr,
                 in_runtime,
