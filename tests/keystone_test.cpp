@@ -2,14 +2,11 @@
 // Created by Alex Thomas on 8/31/19.
 //
 
-//#include "gmock/gmock.h"
 #include <getopt.h>
 #include <iostream>
 #include <cstdio>
 #include "gtest/gtest.h"
 #include "keystone.h"
-
-//using ::testing::AtLeast;                         // #1
 
 size_t untrusted_size = 2*1024*1024;
 size_t freemem_size = 48*1024*1024;
