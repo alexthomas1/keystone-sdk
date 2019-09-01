@@ -21,6 +21,9 @@ TEST(KeystoneSDK, PositiveNos) {
 
   params.setFreeMemSize(untrusted_size);
   params.setUntrustedMem(utm_ptr, untrusted_size);
+  params.setSimulated(true);
+
+  EXPECT_EQ(enclave.init(0, 0), KEYSTONE_ERROR);
 }
 
 int main(int argc, char **argv)
