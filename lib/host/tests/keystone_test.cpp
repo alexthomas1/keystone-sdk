@@ -9,7 +9,8 @@
 //using ::testing::AtLeast;                         // #1
 
 TEST(KeystoneSDK, PositiveNos) {
-
+  Keystone enclave;
+  Params params;
 }
 
 int main(int argc, char **argv)
