@@ -45,17 +45,17 @@ TEST(Keystone_Init, NullEAPP) {
   ASSERT_ANY_THROW(enclave.init(0, "eyrie-rt", params));
 }
 
-TEST(Keystone_Run, RunTest) {
-  Keystone enclave;
-  Params params;
-
-  params.setFreeMemSize(untrusted_size);
-  params.setUntrustedMem(utm_ptr, untrusted_size);
-  params.setSimulated(true);
-
-//  EXPECT_EQ(enclave.init("test_runner", "test_runner", params), KEYSTONE_SUCCESS);
-//  EXPECT_EQ(enclave.run(), KEYSTONE_SUCCESS);
-}
+//TEST(Keystone_Run, RunTest) {
+//  Keystone enclave;
+//  Params params;
+//
+//  params.setFreeMemSize(untrusted_size);
+//  params.setUntrustedMem(utm_ptr, untrusted_size);
+//  params.setSimulated(true);
+//
+////  EXPECT_EQ(enclave.init("test_runner", "test_runner", params), KEYSTONE_SUCCESS);
+////  EXPECT_EQ(enclave.run(), KEYSTONE_SUCCESS);
+//}
 
 
 int main(int argc, char **argv)
