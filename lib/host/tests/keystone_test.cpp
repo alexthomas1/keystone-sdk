@@ -15,7 +15,7 @@ size_t untrusted_size = 2*1024*1024;
 size_t freemem_size = 48*1024*1024;
 uintptr_t utm_ptr = (uintptr_t)DEFAULT_UNTRUSTED_PTR;
 
-TEST(KeystoneSDK, PositiveNos) {
+TEST(KeystoneSDK, InvalidELF) {
   Keystone enclave;
   Params params;
 
