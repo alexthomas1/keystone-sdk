@@ -34,16 +34,16 @@ TEST(Keystone_Init, NullRT) {
   ASSERT_ANY_THROW(enclave.init("test_runner", 0, params));
 }
 
-TEST(Keystone_Init, NullEAPP) {
-  Keystone enclave;
-  Params params;
-
-  params.setFreeMemSize(untrusted_size);
-  params.setUntrustedMem(utm_ptr, untrusted_size);
-  params.setSimulated(true);
-
-  ASSERT_ANY_THROW(enclave.init(0, "eyrie-rt", params));
-}
+//TEST(Keystone_Init, NullEAPP) {
+//  Keystone enclave;
+//  Params params;
+//
+//  params.setFreeMemSize(untrusted_size);
+//  params.setUntrustedMem(utm_ptr, untrusted_size);
+//  params.setSimulated(true);
+//
+//  ASSERT_ANY_THROW(enclave.init(0, "eyrie-rt", params));
+//}
 
 //TEST(Keystone_Run, RunTest) {
 //  Keystone enclave;
