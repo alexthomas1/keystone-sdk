@@ -158,11 +158,11 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
       if(contiguous == -1){
         printf("BAD MAP: %p->%lu epm %p %llu uer %u %llu\n",
                (void *) va_start,phys_addr,
-                //in_runtime,
+                in_runtime,
                0,
                (void *) cargs->runtime_paddr,
                0,
-                //in_user,
+                in_user,
                cargs->user_paddr);
         goto fatal_bail;
       }
