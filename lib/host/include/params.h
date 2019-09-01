@@ -6,6 +6,8 @@
 #define __ENCLAVE_CREATION_PARAMS_H__
 
 #include <cstdio>
+#include "memory.h"
+#include "keystone_device.h"
 
 #define DEFAULT_FREEMEM_SIZE    1024*1024 // 1 MB
 #define DEFAULT_UNTRUSTED_PTR   0xffffffff80000000
@@ -39,6 +41,8 @@ class Params
     uint64_t untrusted;
     uint64_t untrusted_size;
     uint64_t freemem_size;
+    Memory* pMemory;
+    KeystoneDeviceInterface* kDevice;
 };
 
 #endif
