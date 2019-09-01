@@ -339,11 +339,11 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 
   if (params.isSimulated()) {
     pMemory = new SimulatedEnclaveMemory();
+    kDevice = new KeystoneDevice();
   } else {
     pMemory = new PhysicalEnclaveMemory();
+    kDevice = new KeystoneDevice();
   }
-
-  kDevice = new KeystoneDevice();
 
   if(!initFiles(eapppath, runtimepath)) {
     return KEYSTONE_ERROR;
