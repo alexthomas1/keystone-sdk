@@ -8,7 +8,6 @@
 #include <cstdio>
 #include "gtest/gtest.h"
 #include "keystone.h"
-//#include "edge_wrapper.h"
 
 //using ::testing::AtLeast;                         // #1
 
