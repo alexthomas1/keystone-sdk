@@ -16,4 +16,4 @@ GFLAGS = -lgtest
 TARGET = test.o
 
 all:
-	$(CC) $(CCFLAGS) $(LDFLAGS) -o $(TARGET) $(GFLAGS)
+	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp -o $(TARGET) $(GFLAGS)
