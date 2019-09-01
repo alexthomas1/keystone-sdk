@@ -14,4 +14,4 @@ CCFLAGS = -I$(SDK_INCLUDE_HOST_DIR) -I$(SDK_INCLUDE_EDGE_DIR) -I$(SDK_INCLUDE_VE
 LDFLAGS = -L$(SDK_LIB_DIR)
 
 all:
-	$(CC) $(CCFLAGS) keystone_test.cpp -lgtest
+	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp -lgtest
