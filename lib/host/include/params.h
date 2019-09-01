@@ -41,8 +41,6 @@ class Params
     uint64_t untrusted;
     uint64_t untrusted_size;
     uint64_t freemem_size;
-    Memory* pMemory;
-    KeystoneDeviceInterface* kDevice;
 };
 
 #endif
