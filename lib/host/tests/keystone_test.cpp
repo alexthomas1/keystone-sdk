@@ -23,7 +23,7 @@ TEST(KeystoneSDK, PositiveNos) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  EXPECT_EQ(enclave.init(0, 0), KEYSTONE_ERROR);
+  EXPECT_EQ(enclave.init(0, 0, params), KEYSTONE_ERROR);
 }
 
 int main(int argc, char **argv)
