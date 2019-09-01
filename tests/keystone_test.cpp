@@ -24,7 +24,7 @@ TEST(KeystoneSDK, InvalidELF) {
   params.setSimulated(true);
 
 //  ASSERT_ANY_THROW(enclave.init("stack.eapp_riscv", 0, params));
-  ASSERT_NONE(enclave.init("stack.eapp_riscv", 0, params));
+  EXPECT_EQ(enclave.init("stack.eapp_riscv", 0, params), KEYSTONE_ERROR);
 }
 
 int main(int argc, char **argv)
