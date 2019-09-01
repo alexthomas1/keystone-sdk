@@ -41,6 +41,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
 {
   pte_t* walk;
   int i;
+  int in_runtime, in_user; 
 
   /* iterate over PTEs */
   for (walk=tb, i=0; walk < tb + (RISCV_PGSIZE/sizeof(pte_t)); walk += 1,i++)
@@ -95,9 +96,9 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
        *
        * We also validate that all utm vaddrs -> utm paddrs
        */
-      int in_runtime = ((phys_addr >= cargs->runtime_paddr) &&
+      in_runtime = ((phys_addr >= cargs->runtime_paddr) &&
                         (phys_addr < (cargs->user_paddr)));
-      int in_user = ((phys_addr >= cargs->user_paddr) &&
+      in_user = ((phys_addr >= cargs->user_paddr) &&
                      (phys_addr < (cargs->free_paddr)));
 
       /* Validate U bit */
