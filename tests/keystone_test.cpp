@@ -27,17 +27,17 @@ TEST(Keystone_Init, InvalidELF) {
   EXPECT_EQ(enclave.init("test_runner", "test_runner", params), KEYSTONE_ERROR);
 }
 
-TEST(Keystone_Run, RunTest) {
-  Keystone enclave;
-  Params params;
-
-  params.setFreeMemSize(untrusted_size);
-  params.setUntrustedMem(utm_ptr, untrusted_size);
-  params.setSimulated(true);
-
-  enclave.init("test_runner", "eyrie-rt", params)
-  EXPECT_EQ(enclave.run(), KEYSTONE_SUCCESS);
-}
+//TEST(Keystone_Run, RunTest) {
+//  Keystone enclave;
+//  Params params;
+//
+//  params.setFreeMemSize(untrusted_size);
+//  params.setUntrustedMem(utm_ptr, untrusted_size);
+//  params.setSimulated(true);
+//
+//  enclave.init("test_runner", "eyrie-rt", params)
+//  EXPECT_EQ(enclave.run(), KEYSTONE_SUCCESS);
+//}
 
 
 int main(int argc, char **argv)
