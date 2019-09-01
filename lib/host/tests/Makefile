@@ -16,4 +16,4 @@ GFLAGS = -lgtest
 TARGET = test.o
 
 all:
-	$(CC) $(CCFLAGS) $(LDFLAGS) $(TARGET) $(GFLAGS)
+	$(CC) $(CCFLAGS) $(LDFLAGS) -o $(TARGET) $(GFLAGS)
