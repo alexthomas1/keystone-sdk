@@ -339,7 +339,7 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 
   if (params.isSimulated()) {
     pMemory = new SimulatedEnclaveMemory();
-    kDevice = new KeystoneDevice();
+    kDevice = new MockKeystoneDevice();
   } else {
     pMemory = new PhysicalEnclaveMemory();
     kDevice = new KeystoneDevice();
