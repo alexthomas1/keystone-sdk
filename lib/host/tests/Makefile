@@ -13,7 +13,7 @@ SDK_INCLUDE_VERIFIER_DIR = $(SDK_LIB_DIR)/verifier
 CCFLAGS = -I$(SDK_INCLUDE_HOST_DIR) -I$(SDK_INCLUDE_EDGE_DIR) -I$(SDK_INCLUDE_VERIFIER_DIR) -std=c++11
 LDFLAGS = -L$(SDK_LIB_DIR)
 GFLAGS = -lgtest
-TARGET = test.o
+TARGET = test_runner
 
 all:
 	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp -o $(TARGET) $(GFLAGS)
