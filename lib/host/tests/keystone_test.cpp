@@ -7,7 +7,9 @@
 
 //using ::testing::AtLeast;                         // #1
 
+TEST(SquareRootTest, PositiveNos) {
 
+}
 
 int main(int argc, char *argv[]){
   testing::InitGoogleTest(&argc, argv);
