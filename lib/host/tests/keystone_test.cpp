@@ -11,9 +11,16 @@
 
 //using ::testing::AtLeast;                         // #1
 
+size_t untrusted_size = 2*1024*1024;
+size_t freemem_size = 48*1024*1024;
+uintptr_t utm_ptr = (uintptr_t)DEFAULT_UNTRUSTED_PTR;
+
 TEST(KeystoneSDK, PositiveNos) {
   Keystone enclave;
   Params params;
+
+  params.setFreeMemSize(untrusted_size);
+  params.setUntrustedMem(utm_ptr, untrusted_size);
 }
 
 int main(int argc, char **argv)
