@@ -19,7 +19,7 @@ GFLAGS = -lgtest
 TARGET = test_runner
 
 all: $(SDK_HOST_LIB)
-	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp -o $(TARGET) $(GFLAGS)
+	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp $(SRC) -o $(TARGET) $(GFLAGS)
 
 $(SDK_HOST_LIB):
 	$(MAKE) -C $(SDK_HOST_DIR)
