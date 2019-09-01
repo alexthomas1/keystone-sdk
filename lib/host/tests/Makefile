@@ -1,7 +1,16 @@
 CC = riscv64-unknown-linux-gnu-g++
-INCLUDE_DIR = ../include/
-SRC_DIR = ../src/
+OBJCOPY = riscv64-unknown-linux-gnu-objcopy
 
-OPTIONS_FLAGS ?=
+SDK_LIB_DIR =$(KEYSTONE_SDK_DIR)/lib
+SDK_HOST_LIB = $(SDK_LIB_DIR)/libkeystone-host.a
+SDK_EDGE_LIB = $(SDK_LIB_DIR)/libkeystone-edge.a
+SDK_VERIFIER_LIB = $(SDK_LIB_DIR)/libkeystone-verifier.a
 
-CCFLAGS = -Wall -Werror -I $(INCLUDE_DIR) $(OPTIONS_FLAGS)
+SDK_INCLUDE_HOST_DIR = $(SDK_LIB_DIR)/host/include
+SDK_INCLUDE_EDGE_DIR = $(SDK_LIB_DIR)/edge/include
+SDK_INCLUDE_VERIFIER_DIR = $(SDK_LIB_DIR)/verifier
+
+CCFLAGS = -I$(SDK_INCLUDE_HOST_DIR) -I$(SDK_INCLUDE_EDGE_DIR) -I$(SDK_INCLUDE_VERIFIER_DIR) -std=c++11
+LDFLAGS = -L$(SDK_LIB_DIR)
+
+all:
