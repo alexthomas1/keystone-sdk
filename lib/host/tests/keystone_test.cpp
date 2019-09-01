@@ -3,6 +3,9 @@
 //
 
 //#include "gmock/gmock.h"
+#include <getopt.h>
+#include <iostream>
+#include <cstdio>
 #include "gtest/gtest.h"
 #include "keystone.h"
 #include "edge_wrapper.h"
