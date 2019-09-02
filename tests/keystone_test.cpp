@@ -8,8 +8,8 @@
 #include "gtest/gtest.h"
 #include "keystone.h"
 
-#define EYRIE_RT
-#define TEST_EAPP
+#define EYRIE_RT "eyrie-rt"
+#define TEST_EAPP "stack.eapp_riscv"
 
 char const *ref_hash = "\xF\x7F\xED\xF5\xEB\x82\x8B\xD2\x11\xFBWv\xBE\xB4m\x80\xD2";
 
