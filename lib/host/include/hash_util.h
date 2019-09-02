@@ -76,7 +76,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
     {
 
       hash_extend(hash_ctx, &va_start, sizeof(uintptr_t));
-//      printf("user VA hashed: 0x%lx\n", va_start);
+      printf("user VA hashed: 0x%lx\n", va_start);
       contiguous = 1;
     }
 
