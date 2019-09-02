@@ -136,7 +136,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
         // we checked this above, its OK
       }
       else{
-        //printm("BAD GENERIC MAP %x %x %x\n", in_runtime, in_user, map_in_utm);
+        printm("BAD GENERIC MAP %x %x %x\n", in_runtime, in_user, map_in_utm);
         printf("3\n");
         goto fatal_bail;
       }
@@ -167,7 +167,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
                 0,
                (void *) cargs->runtime_paddr,
 //                in_user,
-                0, 
+                0,
                (void *) cargs->user_paddr);
         goto fatal_bail;
       }
