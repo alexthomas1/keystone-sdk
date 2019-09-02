@@ -11,9 +11,10 @@
 #define EYRIE_RT
 #define TEST_EAPP
 
+char const *ref_hash = "\xF\x7F\xED\xF5\xEB\x82\x8B\xD2\x11\xFBWv\xBE\xB4m\x80\xD2";
+
 size_t untrusted_size = 2*1024*1024;
 size_t freemem_size = 48*1024*1024;
-char const *hash = "\xF\x7F\xED\xF5\xEB\x82\x8B\xD2\x11\xFBWv\xBE\xB4m\x80\xD2";
 uintptr_t utm_ptr = (uintptr_t)DEFAULT_UNTRUSTED_PTR;
 
 TEST(Keystone_Init, ValidMeasure) {
@@ -28,7 +29,7 @@ TEST(Keystone_Init, ValidMeasure) {
   params.setSimulated(true);
 
   EXPECT_EQ(enclave.init(TEST_EAPP, EYRIE_RT, params), KEYSTONE_SUCCESS);
-  ASSERT_STREQ(enclave.getHash(), hash);
+  ASSERT_STREQ(enclave.getHash(), ref_hash);
   EXPECT_EQ(enclave.destroy(), KEYSTONE_SUCCESS);
 }
 
