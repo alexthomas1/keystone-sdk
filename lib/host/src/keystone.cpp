@@ -385,6 +385,7 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 
   /* initialize stack. If not using freemem */
 #ifndef USE_FREEMEM
+  printf("OAIJFOIEHI\n");
   if( initStack(DEFAULT_STACK_START, DEFAULT_STACK_SIZE, 0) != KEYSTONE_SUCCESS){
     ERROR("failed to init static stack");
     destroy();
