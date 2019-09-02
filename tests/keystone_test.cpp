@@ -13,7 +13,7 @@ size_t freemem_size = 48*1024*1024;
 char const *hash = "\xF\x7F\xED\xF5\xEB\x82\x8B\xD2\x11\xFBWv\xBE\xB4m\x80\xD2";
 uintptr_t utm_ptr = (uintptr_t)DEFAULT_UNTRUSTED_PTR;
 
-TEST(Keystone_Init, ValidInit) {
+TEST(Keystone_Init, ValidMeasure) {
   Keystone enclave;
   Params params;
 
@@ -22,7 +22,6 @@ TEST(Keystone_Init, ValidInit) {
   params.setSimulated(true);
 
   EXPECT_EQ(enclave.init("stack.eapp_riscv", "eyrie-rt", params), KEYSTONE_SUCCESS);
-
   ASSERT_STREQ(enclave.getHash(), hash);
   EXPECT_EQ(enclave.destroy(), KEYSTONE_SUCCESS);
 }
