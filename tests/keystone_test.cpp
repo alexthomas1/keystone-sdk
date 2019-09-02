@@ -10,6 +10,8 @@
 
 #define EYRIE_RT "eyrie-rt"
 #define TEST_EAPP "stack.eapp_riscv"
+#define FAKE_EAPP "fake_file.riscv"
+#define FAKE_RT "fake-rt"
 
 char const *ref_hash = "\xF\x7F\xED\xF5\xEB\x82\x8B\xD2\x11\xFBWv\xBE\xB4m\x80\xD2";
 
@@ -44,7 +46,7 @@ TEST(Keystone_Init, NullRT) {
   ASSERT_ANY_THROW(enclave.init(TEST_EAPP, 0, params));
 }
 
-TEST(Keystone_Init, NullEAPP) {
+TEST(Keystone_Init, InvalidEAPP) {
   Keystone enclave;
   Params params;
 
@@ -52,7 +54,7 @@ TEST(Keystone_Init, NullEAPP) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  ASSERT_ANY_THROW(enclave.init(0, EYRIE_RT, params));
+  ASSERT_ANY_THROW(enclave.init(FAKE_EAPP, EYRIE_RT, params));
 }
 
 TEST(Keystone_Run, RunTest) {
@@ -63,7 +65,7 @@ TEST(Keystone_Run, RunTest) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  EXPECT_EQ(enclave.init(TEST_EAPP, EYRIE_RT, params), KEYSTONE_SUCCESS);
+  EXPECT_EQ(enclave.init(TEST_EAPP, FAKE_RT, params), KEYSTONE_SUCCESS);
   EXPECT_EQ(enclave.run(), KEYSTONE_SUCCESS);
 }
 
