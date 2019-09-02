@@ -102,8 +102,8 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
                         (phys_addr < (cargs->user_paddr)));
       int in_user = ((phys_addr >= cargs->user_paddr) &&
                      (phys_addr < (cargs->free_paddr)));
-      printf("rt_paddr: %p, user_paddr: %p, free_paddr: %p\n", (void *) cargs->runtime_paddr, (void *) cargs->user_paddr,
-             (void*) cargs->free_paddr);
+//      printf("rt_paddr: %p, user_paddr: %p, free_paddr: %p\n", (void *) cargs->runtime_paddr, (void *) cargs->user_paddr,
+//             (void*) cargs->free_paddr);
       /* Validate U bit */
       if(in_user && !(pte_val(*walk) & PTE_U)){
         goto fatal_bail;
