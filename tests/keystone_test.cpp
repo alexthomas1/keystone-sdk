@@ -25,7 +25,7 @@ TEST(Keystone_Init, ValidInit) {
 
   printf("%s\n", (const char*) enclave.getHash());
 
-  EXPECT_EQ(enclave.getHash(), hash);
+  ASSERT_STREQ(enclave.getHash(), hash);
   EXPECT_EQ(enclave.destroy(), KEYSTONE_SUCCESS);
 }
 
