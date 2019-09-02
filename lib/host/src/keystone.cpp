@@ -394,7 +394,8 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 #endif /* USE_FREEMEM */
   if(params.isSimulated()) {
     utm_free_list = pMemory->AllocMem(enclp.params.untrusted_size);
-    hash_enclave.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
+//    hash_enclave.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
+    hash_enclave.free_paddr = epm_free_list;
     hash_enclave.utm_paddr = utm_free_list;
   } else {
     int ret;
@@ -408,8 +409,8 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   }
 
   loadUntrusted();
-//  enclp.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
-  enclp.free_paddr = epm_free_list;
+  enclp.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
+//  enclp.free_paddr = epm_free_list;
   if(params.isSimulated()) {
     hash_enclave.utm_size = params.getUntrustedSize();
     hash_enclave.epm_size = PAGE_SIZE * enclp.min_pages;
