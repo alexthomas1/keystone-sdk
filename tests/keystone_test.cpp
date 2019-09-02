@@ -23,7 +23,7 @@ TEST(Keystone_Init, ValidInit) {
 
   EXPECT_EQ(enclave.init("stack.eapp_riscv", "eyrie-rt", params), KEYSTONE_SUCCESS);
 
-  printf('%s\n', (const char*) enclave.getHash());
+  printf("%s\n", (const char*) enclave.getHash());
 
   EXPECT_EQ(enclave.destroy(), KEYSTONE_SUCCESS);
 }
