@@ -42,7 +42,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
   pte_t* walk;
   int i;
 //  int in_runtime, in_user;
-  printf("epm_paddr: %p bound: %p utm_paddr: %p, bound: %p", (void *) cargs->epm_paddr, (void *)(cargs->epm_paddr + cargs->epm_size),
+  printf("epm_paddr: %p bound: %p utm_paddr: %p, bound: %p\n", (void *) cargs->epm_paddr, (void *)(cargs->epm_paddr + cargs->epm_size),
          (void*) cargs->utm_paddr, (void*) (cargs->utm_paddr + cargs->utm_size));
 
   /* iterate over PTEs */
@@ -139,7 +139,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
       }
       else{
         printf("BAD GENERIC MAP %x %x %x\n", in_runtime, in_user, map_in_utm);
-        printf("3\n");
+        printf("physaddr: %p\n", (void*) phys_addr);
         goto fatal_bail;
       }
 
