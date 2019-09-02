@@ -60,7 +60,7 @@ keystone_status_t Keystone::loadUntrusted() {
         if (allocPage(va_start, &utm_free_list, (vaddr_t) nullpage, UTM_FULL) == KEYSTONE_ERROR){
           PERROR("failed to add page - allocPage() failed");
         }
-
+        printf("utm free: %p\n", (void *) utm_free_list);
         va_start += PAGE_SIZE;
     }
     return KEYSTONE_SUCCESS;
@@ -386,7 +386,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   /* initialize stack. If not using freemem */
 #ifndef USE_FREEMEM
   if( initStack(DEFAULT_STACK_START, DEFAULT_STACK_SIZE, 0) != KEYSTONE_SUCCESS){
-    printf("HI\n");
     ERROR("failed to init static stack");
     destroy();
     return KEYSTONE_ERROR;
