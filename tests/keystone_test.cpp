@@ -36,6 +36,9 @@ TEST(Keystone_Init, ValidMeasure) {
 }
 
 TEST(Keystone_Init, InvalidRT) {
+  /* Tests enclave with a non-existant runtime
+   *
+   * */
   Keystone enclave;
   Params params;
 
@@ -47,6 +50,9 @@ TEST(Keystone_Init, InvalidRT) {
 }
 
 TEST(Keystone_Init, InvalidEAPP) {
+  /* Tests enclave with a non-existant enclave app
+   *
+   * */
   Keystone enclave;
   Params params;
 
@@ -58,6 +64,9 @@ TEST(Keystone_Init, InvalidEAPP) {
 }
 
 TEST(Keystone_Run, RunTest) {
+  /* Tests running the enclave after initialization 
+   *
+   * */
   Keystone enclave;
   Params params;
 
