@@ -60,7 +60,6 @@ keystone_status_t Keystone::loadUntrusted() {
         if (allocPage(va_start, &utm_free_list, (vaddr_t) nullpage, UTM_FULL) == KEYSTONE_ERROR){
           PERROR("failed to add page - allocPage() failed");
         }
-        printf("utm free: %p\n", (void *) utm_free_list);
         va_start += PAGE_SIZE;
     }
     return KEYSTONE_SUCCESS;
