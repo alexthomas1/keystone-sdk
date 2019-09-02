@@ -332,7 +332,7 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   return this->init(eapppath, runtimepath, _params, (uintptr_t)0);
 }
 
-char const* Keystone::getHash(){
+const char* Keystone::getHash(){
   return this->hash;
 }
 
