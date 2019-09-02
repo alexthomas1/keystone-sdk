@@ -367,25 +367,26 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 
   uintptr_t data_start;
 
+  hash_enclave.runtime_paddr = epm_free_list;
   if(loadELF(runtimeFile, &data_start) != KEYSTONE_SUCCESS) {
     ERROR("failed to load runtime ELF");
     destroy();
     return KEYSTONE_ERROR;
   }
-  hash_enclave.runtime_paddr = epm_free_list;
+//  hash_enclave.runtime_paddr = epm_free_list;
   enclp.runtime_paddr = (data_start - start_addr) + enclp.pt_ptr;
 
+  hash_enclave.user_paddr = epm_free_list;
   if(loadELF(enclaveFile, &data_start) != KEYSTONE_SUCCESS) {
     ERROR("failed to load enclave ELF");
     destroy();
     return KEYSTONE_ERROR;
   }
-  hash_enclave.user_paddr = epm_free_list;
+//  hash_enclave.user_paddr = epm_free_list;
   enclp.user_paddr = (data_start - start_addr) + enclp.pt_ptr;
 
   /* initialize stack. If not using freemem */
 #ifndef USE_FREEMEM
-  printf("OAIJFOIEHI\n");
   if( initStack(DEFAULT_STACK_START, DEFAULT_STACK_SIZE, 0) != KEYSTONE_SUCCESS){
     ERROR("failed to init static stack");
     destroy();
