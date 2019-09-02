@@ -10,7 +10,7 @@
 
 size_t untrusted_size = 2*1024*1024;
 size_t freemem_size = 48*1024*1024;
-char *hash = "d28b82ebf5ed7f0f 806db4be7657fb11 725ca2b1b5b300d2 03bec76a7759c429 42c60cb55f856713 934a79a2ce1b4dc2 92cb02e1cda4f857 eb9bd3e197129747";
+char const *hash = "d28b82ebf5ed7f0f 806db4be7657fb11 725ca2b1b5b300d2 03bec76a7759c429 42c60cb55f856713 934a79a2ce1b4dc2 92cb02e1cda4f857 eb9bd3e197129747";
 uintptr_t utm_ptr = (uintptr_t)DEFAULT_UNTRUSTED_PTR;
 
 TEST(Keystone_Init, ValidInit) {
