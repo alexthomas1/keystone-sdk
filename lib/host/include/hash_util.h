@@ -41,7 +41,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
 {
   pte_t* walk;
   int i;
-  int in_runtime, in_user;
+//  int in_runtime, in_user;
 
   /* iterate over PTEs */
   for (walk=tb, i=0; walk < tb + (RISCV_PGSIZE/sizeof(pte_t)); walk += 1,i++)
@@ -96,9 +96,9 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
        *
        * We also validate that all utm vaddrs -> utm paddrs
        */
-      in_runtime = ((phys_addr >= cargs->runtime_paddr) &&
+      int in_runtime = ((phys_addr >= cargs->runtime_paddr) &&
                         (phys_addr < (cargs->user_paddr)));
-      in_user = ((phys_addr >= cargs->user_paddr) &&
+      int in_user = ((phys_addr >= cargs->user_paddr) &&
                      (phys_addr < (cargs->free_paddr)));
 
       /* Validate U bit */
@@ -163,9 +163,11 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
         printf("BAD MAP: %p->%p epm %u %p uer %u %p\n",
                (void *) va_start,
                (void *) phys_addr,
-                in_runtime,
+//                in_runtime,
+                0,
                (void *) cargs->runtime_paddr,
-                in_user,
+//                in_user,
+                0, 
                (void *) cargs->user_paddr);
         goto fatal_bail;
       }
