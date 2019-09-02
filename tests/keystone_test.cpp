@@ -43,7 +43,7 @@ TEST(Keystone_Init, InvalidRT) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  EXPECT_EQ(enclave.init(TEST_EAPP, 0, params), KEYSTONE_ERROR);
+  EXPECT_EQ(enclave.init(TEST_EAPP, FAKE_RT, params), KEYSTONE_ERROR);
 }
 
 TEST(Keystone_Init, InvalidEAPP) {
@@ -65,7 +65,7 @@ TEST(Keystone_Run, RunTest) {
   params.setUntrustedMem(utm_ptr, untrusted_size);
   params.setSimulated(true);
 
-  EXPECT_EQ(enclave.init(TEST_EAPP, FAKE_RT, params), KEYSTONE_SUCCESS);
+  EXPECT_EQ(enclave.init(TEST_EAPP, EYRIE_RT, params), KEYSTONE_SUCCESS);
   EXPECT_EQ(enclave.run(), KEYSTONE_SUCCESS);
 }
 
