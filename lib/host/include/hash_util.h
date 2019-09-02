@@ -112,8 +112,8 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
       printf("utptr: %p, bound:%p\n", (void *) cargs->untrusted_ptr, (void *) (cargs->untrusted_ptr + cargs->untrusted_size));
 
       /* If the vaddr is in UTM, the paddr must be in UTM */
-      if(va_start >= cargs->untrusted_ptr &&
-         va_start < (cargs->untrusted_ptr + cargs->untrusted_size) &&
+      if(va_start >= cargs->utm_paddr &&
+         va_start < (cargs->utm_paddr + cargs->untrusted_size) &&
          !map_in_utm){
         goto fatal_bail;
       }
