@@ -42,6 +42,8 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
   pte_t* walk;
   int i;
 //  int in_runtime, in_user;
+  printf("epm_paddr: %p bound: %p utm_paddr: %p, bound: %p", (void *) cargs->epm_paddr, (void *)(cargs->epm_paddr + cargs->epm_size),
+         (void*) cargs->utm_paddr, (void*) (cargs->utm_paddr + cargs->utm_size));
 
   /* iterate over PTEs */
   for (walk=tb, i=0; walk < tb + (RISCV_PGSIZE/sizeof(pte_t)); walk += 1,i++)
