@@ -42,8 +42,8 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
   pte_t* walk;
   int i;
 //  int in_runtime, in_user;
-  printf("epm_paddr: %p bound: %p utm_paddr: %p, bound: %p\n", (void *) cargs->epm_paddr, (void *)(cargs->epm_paddr + cargs->epm_size),
-         (void*) cargs->utm_paddr, (void*) (cargs->utm_paddr + cargs->utm_size));
+//  printf("epm_paddr: %p bound: %p utm_paddr: %p, bound: %p\n", (void *) cargs->epm_paddr, (void *)(cargs->epm_paddr + cargs->epm_size),
+//         (void*) cargs->utm_paddr, (void*) (cargs->utm_paddr + cargs->utm_size));
 
   /* iterate over PTEs */
   for (walk=tb, i=0; walk < tb + (RISCV_PGSIZE/sizeof(pte_t)); walk += 1,i++)
@@ -109,8 +109,6 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
         goto fatal_bail;
       }
 
-      printf("utptr: %p, bound:%p\n", (void *) cargs->utm_paddr, (void *) (cargs->utm_paddr + cargs->untrusted_size));
-
       /* If the vaddr is in UTM, the paddr must be in UTM */
       if(va_start >= cargs->utm_paddr &&
          va_start < (cargs->utm_paddr + cargs->untrusted_size) &&
@@ -141,6 +139,7 @@ int validate_and_hash_epm(hash_ctx_t* hash_ctx, int level,
         // we checked this above, its OK
       }
       else{
+        printf("utptr: %p, bound:%p\n", (void *) cargs->utm_paddr, (void *) (cargs->utm_paddr + cargs->untrusted_size));
         printf("BAD GENERIC MAP %x %x %x\n", in_runtime, in_user, map_in_utm);
         printf("physaddr: %p\n", (void*) phys_addr);
         goto fatal_bail;
