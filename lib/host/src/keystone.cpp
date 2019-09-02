@@ -408,7 +408,8 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   }
 
   loadUntrusted();
-  enclp.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
+//  enclp.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
+  enclp.free_paddr = epm_free_list;
   if(params.isSimulated()) {
     hash_enclave.utm_size = params.getUntrustedSize();
     hash_enclave.epm_size = PAGE_SIZE * enclp.min_pages;
