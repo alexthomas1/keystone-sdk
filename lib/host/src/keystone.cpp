@@ -332,6 +332,10 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   return this->init(eapppath, runtimepath, _params, (uintptr_t)0);
 }
 
+char * Keystone::getHash(){
+  return this->hash; 
+}
+
 keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, Params _params, uintptr_t alternate_phys_addr)
 {
   params = _params;
@@ -419,7 +423,7 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     hash_enclave.untrusted_size = enclp.params.untrusted_size;
 
     validate_and_hash_enclave(enclp.params, &hash_enclave);
-    printHash(hash);
+//    printHash(hash);
   } else {
     int ret;
     ret = kDevice->ioctl_ioc_finalize_enclave(&enclp);

@@ -65,6 +65,7 @@ private:
 public:
   Keystone();
   ~Keystone();
+  char *getHash();
   void* getSharedBuffer();
   size_t getSharedBufferSize();
   keystone_status_t registerOcallDispatch(OcallFunc func);
