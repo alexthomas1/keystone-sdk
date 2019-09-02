@@ -376,7 +376,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     destroy();
     return KEYSTONE_ERROR;
   }
-//  hash_enclave.runtime_paddr = epm_free_list;
   enclp.runtime_paddr = (data_start - start_addr) + enclp.pt_ptr;
 
   hash_enclave.user_paddr = epm_free_list;
@@ -385,7 +384,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     destroy();
     return KEYSTONE_ERROR;
   }
-//  hash_enclave.user_paddr = epm_free_list;
   enclp.user_paddr = (data_start - start_addr) + enclp.pt_ptr;
 
   /* initialize stack. If not using freemem */
@@ -398,7 +396,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 #endif /* USE_FREEMEM */
   if(params.isSimulated()) {
     utm_free_list = pMemory->AllocMem(enclp.params.untrusted_size);
-//    hash_enclave.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
     hash_enclave.free_paddr = epm_free_list;
     hash_enclave.utm_paddr = utm_free_list;
   } else {
@@ -414,7 +411,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
 
   loadUntrusted();
   enclp.free_paddr = (epm_free_list - start_addr) + enclp.pt_ptr;
-//  enclp.free_paddr = epm_free_list;
   if(params.isSimulated()) {
     hash_enclave.utm_size = params.getUntrustedSize();
     hash_enclave.epm_size = PAGE_SIZE * enclp.min_pages;
@@ -423,7 +419,6 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
     hash_enclave.untrusted_size = enclp.params.untrusted_size;
 
     validate_and_hash_enclave(enclp.params, &hash_enclave);
-//    printHash(hash);
   } else {
     int ret;
     ret = kDevice->ioctl_ioc_finalize_enclave(&enclp);

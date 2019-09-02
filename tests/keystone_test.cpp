@@ -64,7 +64,7 @@ TEST(Keystone_Init, InvalidEAPP) {
 }
 
 TEST(Keystone_Run, RunTest) {
-  /* Tests running the enclave after initialization 
+  /* Tests running the enclave after initialization
    *
    * */
   Keystone enclave;
