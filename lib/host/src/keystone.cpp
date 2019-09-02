@@ -332,8 +332,8 @@ keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, 
   return this->init(eapppath, runtimepath, _params, (uintptr_t)0);
 }
 
-char * Keystone::getHash(){
-  return this->hash; 
+char* Keystone::getHash(){
+  return this->hash;
 }
 
 keystone_status_t Keystone::init(const char *eapppath, const char *runtimepath, Params _params, uintptr_t alternate_phys_addr)
