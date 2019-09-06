@@ -9,8 +9,8 @@
 #include "keystone.h"
 
 #define EYRIE_RT "eyrie-rt"
-#define TEST_EAPP "stack.eapp_riscv"
-#define FAKE_EAPP "fake_file.riscv"
+#define TEST_EAPP "test_binary/stack.eapp_riscv"
+#define FAKE_EAPP "test_binary/fake_file.riscv"
 #define FAKE_RT "fake-rt"
 
 char const *ref_hash = "\xF\x7F\xED\xF5\xEB\x82\x8B\xD2\x11\xFBWv\xBE\xB4m\x80\xD2";
