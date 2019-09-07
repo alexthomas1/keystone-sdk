@@ -5,10 +5,10 @@ if [ ! -d "$DIR" ]; then
 fi
 prevdir=$(pwd)
 GLIB=$DIR/libgtest.so  
-if [ ! -d "$DIR" ]; then
+if [ ! -d "$GLIB" ]; then
 	cd $DIR
-	cmake CMakeLists.txt
+	cmake CMakeLists.txt -DBUILD_SHARED_LIBS=ON 
 	make
-	cp *.a /usr/lib
+	cp *.so /usr/lib
 	cd $prevdir
 fi
