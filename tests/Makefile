@@ -20,11 +20,11 @@ LDFLAGS = -L$(SDK_LIB_DIR)
 GFLAGS = -lgtest
 TARGET = test_runner
 
-test: 
-	./$(TARGET)
-
-all: $(TARGET)
+all: 
 	$(CC) $(CCFLAGS) $(LDFLAGS) keystone_test.cpp $(SRCS) -o $(TARGET) $(GFLAGS)
+
+run: 
+	./$(TARGET)
 
 clean:
 	rm $(TARGET)
