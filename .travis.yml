@@ -38,3 +38,4 @@ jobs:
         - make
         - make test
         - cd $TRAVIS_BUILD_DIR
+
