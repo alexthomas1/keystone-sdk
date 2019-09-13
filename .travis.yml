@@ -35,6 +35,6 @@ jobs:
     - stage: build everything & test
       script:
         - cd tests
-	- make
-	- make test
-	- cd $TRAVIS_BUILD_DIR
+        - make
+        - make test
+        - cd $TRAVIS_BUILD_DIR
