@@ -33,7 +33,8 @@ before_install:
 jobs:
   include:
     - stage: build everything & test
-      script:
+      script: 
+        - make
         - cd tests
         - make
         - make test
