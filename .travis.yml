@@ -29,6 +29,7 @@ branches:
 
 before_install:
   - ./tests/scripts/setup_test.sh
+  - ./scripts/init.sh 
 
 jobs:
   include:
