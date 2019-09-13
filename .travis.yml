@@ -30,6 +30,7 @@ branches:
 before_install:
   - ./tests/scripts/setup_test.sh
   - ./scripts/init.sh 
+  - ./fast-setup.sh
 
 jobs:
   include:
